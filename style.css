@@ -453,14 +453,6 @@ h2 {
     box-shadow: 0 0 20px var(--glow-color);
 }
 
-.member-card img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: 3px solid var(--primary-color);
-    margin-bottom: 1rem;
-}
-
 .member-card h3 {
     margin: 0.5rem 0;
     font-size: 1.2rem;
