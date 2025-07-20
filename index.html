@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fin's Kingdom | Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        // Configuration - Set to false to hide the members section
+        const SHOW_MEMBERS_SECTION = false;
+    </script>
+</head>
+<body>
+
+    <header>
+        <h1>Fin's Kingdom</h1>
+        <nav>
+            <a href="#" class="blade-button" onclick="showSection('home')"><span>Home</span></a>
+            <a href="#" class="blade-button" onclick="showSection('about')"><span>About</span></a>
+            <a href="https://discord.gg/xb8jhxfTsc" class="blade-button" target="_blank"><span>Join Us</span></a>
+            <a href="#" class="blade-button" onclick="showSection('rules')"><span>Rules</span></a>
+        </nav>
+    </header>
+
+    <main>
+        <div id="home-section" class="page-section active">
+            <section class="hero">
+                <h2 class="hero-title">Welcome to the Kingdom</h2>
+                <p class="hero-subtitle">Dominate the Arena. Define the Legacy.</p>
+            </section>
+
+            <section class="description-section animate-on-load">
+                <h2>About Our Kingdom</h2>
+                <div class="description-content">
+                    <p>Welcome to Fin's Kingdom, an elite Blade Ball clan where skill meets dedication. We are a community of passionate players who strive for excellence in every match.</p>
+                    <p>Our kingdom stands as a beacon of competitive spirit and camaraderie. Whether you're looking to improve your gameplay, participate in tournaments, or simply enjoy the thrill of Blade Ball with like-minded players, you've found your home.</p>
+                    <p>Join us in our quest to dominate the arena and build lasting friendships along the way.</p>
+                </div>
+            </section>
+
+            <section class="clan-info animate-on-load">
+                <h2>Clan Level <img src="https://api.iconify.design/ph:trophy-duotone.svg?color=%2300aaff" alt="Trophy Icon" class="emoji"></h2>
+                <div class="level-display">
+                    <p>Level 5</p>
+                </div>
+            </section>
+
+            <section class="members-section animate-on-load" id="members-section">
+                <h2>Our Members</h2>
+                <div class="slider-container">
+                    <div class="slider">
+                        <!-- Add your members here -->
+                        <div class="member-card">
+                            <img src="https://via.placeholder.com/100" alt="Member Avatar">
+                            <h3>Member One</h3>
+                            <p>Co-Leader</p>
+                        </div>
+                        <div class="member-card">
+                            <img src="https://via.placeholder.com/100" alt="Member Avatar">
+                            <h3>Member Two</h3>
+                            <p>Elite</p>
+                        </div>
+                        <div class="member-card">
+                            <img src="https://via.placeholder.com/100" alt="Member Avatar">
+                            <h3>Member Three</h3>
+                            <p>Member</p>
+                        </div>
+                        <div class="member-card">
+                            <img src="https://via.placeholder.com/100" alt="Member Avatar">
+                            <h3>Member Four</h3>
+                            <p>Member</p>
+                        </div>
+                        <div class="member-card">
+                            <img src="https://via.placeholder.com/100" alt="Member Avatar">
+                            <h3>Member Five</h3>
+                            <p>Member</p>
+                        </div>
+                        <!-- Add more member-card divs as needed -->
+                    </div>
+                    <button class="slider-btn prev-btn"><img src="https://api.iconify.design/ph:caret-left-bold.svg?color=%23ffffff" alt="Previous"></button>
+                    <button class="slider-btn next-btn"><img src="https://api.iconify.design/ph:caret-right-bold.svg?color=%23ffffff" alt="Next"></button>
+                </div>
+            </section>
+        </div>
+
+        <div id="about-section" class="page-section">
+            <section class="about-content animate-on-load">
+                <h2><img src="https://api.iconify.design/game-icons:crossed-swords.svg?color=%2300aaff" alt="Swords" class="title-emoji"> FSK | FIN'S KINGDOM <img src="https://api.iconify.design/game-icons:crossed-swords.svg?color=%2300aaff" alt="Swords" class="title-emoji"></h2>
+                
+                <div class="about-divider"></div>
+
+                <div class="about-section">
+                    <h3><img src="https://api.iconify.design/ph:target-duotone.svg?color=%2300aaff" alt="Target" class="emoji"> REQUIREMENTS</h3>
+                    <div class="requirement-list">
+                        <div class="requirement-item">
+                            <img src="https://api.iconify.design/ph:trophy-duotone.svg?color=%2300aaff" alt="Trophy" class="emoji">
+                            <span>30+ Activity Points</span>
+                        </div>
+                        <div class="requirement-item">
+                            <img src="https://api.iconify.design/ph:crown-duotone.svg?color=%23ffaa00" alt="Crown" class="emoji">
+                            <img src="https://api.iconify.design/ph:calendar-duotone.svg?color=%2300aaff" alt="Calendar" class="emoji">
+                            <span>500 Crowns Weekly</span>
+                        </div>
+                        <div class="requirement-item">
+                            <img src="https://api.iconify.design/ph:warning-duotone.svg?color=%23ff0055" alt="Warning" class="emoji">
+                            <span>Must be active in clan</span>
+                            <img src="https://api.iconify.design/ph:warning-duotone.svg?color=%23ff0055" alt="Warning" class="emoji">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-section">
+                    <h3><img src="https://api.iconify.design/ph:medal-duotone.svg?color=%23ffaa00" alt="Medal" class="emoji"> PERKS</h3>
+                    <div class="perk-list">
+                        <div class="perk-item">
+                            <img src="https://api.iconify.design/ph:shopping-bag-duotone.svg?color=%2300aaff" alt="Shop" class="emoji">
+                            <span>CLAN SHOP</span>
+                        </div>
+                        <div class="perk-item">
+                            <img src="https://api.iconify.design/game-icons:sword-clash.svg?color=%2300aaff" alt="Sword" class="emoji">
+                            <img src="https://api.iconify.design/ph:circle-duotone.svg?color=%2300aaff" alt="Circle" class="emoji">
+                            <span>SOON CALMING AND QA</span>
+                        </div>
+                        <div class="perk-item">
+                            <img src="https://api.iconify.design/ph:gift-duotone.svg?color=%23ff55aa" alt="Gift" class="emoji">
+                            <span>Frequent Giveaways</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="rules-section" class="page-section">
+            <section class="rules-content animate-on-load">
+                <h2>Rules of Conduct for Fin's Kingdom</h2>
+                
+                <div class="rule-item">
+                    <h3>1. No NSFW Jokes or Media</h3>
+                    <p><strong>Avoid making any jokes or comments of any sexual nature</strong>.</p>
+                    <ul>
+                        <li>Absolutely refrain from making jokes related to rape or any form of sexual violence.</li>
+                        <li>Any NSFW posted will get you a banned ⚠️</li>
+                        <li>No jokes about pedophilia, or fake accusations</li>
+                        <li>No homophobic or transphobic comments</li>
+                        <li>No excessive use of the N word</li>
+                        <li>Any comments regarding H*tler will get you banned/kicked</li>
+                    </ul>
+                </div>
+
+                <div class="rule-item">
+                    <h3>2. Respect Family</h3>
+                    <p><strong>Do not bring up or involve anyone's family members in arguments</strong>.</p>
+                    <ul>
+                        <li>Avoid making comments about someone's family, whether positive or negative, in contentious discussions.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-item">
+                    <h3>3. Respect Religion</h3>
+                    <p><strong>Do not involve or reference anyone's religious beliefs in arguments</strong>.</p>
+                    <ul>
+                        <li>Avoid making derogatory comments about any religion or religious practices.</li>
+                    </ul>
+                </div>
+
+                <div class="rule-item">
+                    <h3>4. General Respect</h3>
+                    <p><strong>Treat everyone with respect</strong>, regardless of their background or beliefs.</p>
+                    <p><strong>Focus on the topic at hand rather than personal attributes or affiliations.</strong></p>
+                </div>
+
+                <div class="rule-item">
+                    <h3>5. Respect the Privacy of Others</h3>
+                    <p>Do not share personal information of other members without their consent. Respect the privacy of all users.</p>
+                </div>
+
+                <div class="rule-item">
+                    <h3>6. Stay in the right channel</h3>
+                    <p>Make sure you post messages in the appropriate channels. Avoid off-topic discussions in the wrong channels.</p>
+                </div>
+
+                <div class="rule-item">
+                    <h3>7. Consequences</h3>
+                    <p><strong>Be aware that violating these rules can result in disciplinary action</strong>, including but not limited to warnings, temporary bans, or permanent removal from the community.</p>
+                </div>
+
+                <div class="rule-item">
+                    <h3>8. Listen to Staff</h3>
+                    <p><strong>Respect and Follow Staff Instructions</strong>:</p>
+                    <p>Always listen to and follow the instructions given by staff members. If you have concerns or disagreements, address them politely through appropriate channels.</p>
+                </div>
+
+                <div class="rule-footer">
+                    <p><em>These rules are in place to ensure a respectful and safe environment is placed for everyone.</em></p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Fin's Kingdom. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</body>
+</html>

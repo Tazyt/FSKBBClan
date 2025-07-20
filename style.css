@@ -1,0 +1,622 @@
+:root {
+    --primary-color: #00aaff; /* Bright Blue */
+    --secondary-color: #0055d4; /* Darker Blue */
+    --dark-bg: #0a0f1e; /* Dark Blue BG */
+    --light-text: #ffffff;
+    --glow-color: rgba(0, 170, 255, 0.7);
+    --corner-glow: #00aaff;
+}
+
+/* Keyframe Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes panBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--primary-color), 0 0 40px var(--primary-color);
+    }
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px var(--primary-color), 0 0 40px var(--primary-color), 0 0 50px var(--primary-color);
+    }
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    font-family: 'Orbitron', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    /* Assumes you have an 'assets' folder with a background image */
+    background-image: url('assets/back3.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    -webkit-animation: panBackground 60s linear infinite;
+    animation: panBackground 60s linear infinite;
+    cursor: url('https://api.iconify.design/ph:cursor-duotone.svg?color=%2300aaff'), auto;
+    /* Suggests the browser should prioritize quality when scaling the image */
+    image-rendering: -moz-crisp-edges; /* Firefox */
+    image-rendering: -webkit-optimize-contrast; /* Webkit (Chrome, Safari) */
+    image-rendering: crisp-edges;
+    image-rendering: high-quality;
+}
+
+/* Custom cursor for links and buttons */
+a, button {
+    cursor: url('https://api.iconify.design/ph:hand-pointing-duotone.svg?color=%23ffffff'), pointer;
+}
+
+header {
+    padding: 2rem 1rem;
+}
+
+header h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--primary-color);
+}
+
+nav {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.blade-button {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border: 2px solid var(--primary-color);
+    color: var(--light-text);
+    padding: 10px 25px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 8px var(--glow-color), inset 0 0 10px rgba(255, 255, 255, 0.2);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    -webkit-transform: skew(-20deg); /* Skew the button */
+    transform: skew(-20deg); /* Skew the button */
+}
+
+.blade-button span {
+    display: inline-block;
+    -webkit-transform: skew(20deg); /* Un-skew the text */
+    transform: skew(20deg); /* Un-skew the text */
+    position: relative;
+}
+
+.blade-button:hover {
+    background: linear-gradient(135deg, #00bfff, #0066ff); /* Brighter gradient */
+    box-shadow: 0 0 15px var(--glow-color), 0 0 25px var(--glow-color);
+    -webkit-transform: skew(-20deg) scale(1.05); /* Keep skew on hover */
+    transform: skew(-20deg) scale(1.05); /* Keep skew on hover */
+}
+
+.blade-button:active {
+    -webkit-transform: skew(-20deg) scale(0.98);
+    transform: skew(-20deg) scale(0.98);
+}
+
+main {
+    padding: 2rem 1rem;
+    position: relative;
+}
+
+.page-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transform: translateY(50px);
+    transform: translateY(50px);
+    -webkit-transition: all 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+    transition: all 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+    pointer-events: none;
+}
+
+.page-section.active {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    pointer-events: all;
+    position: static;
+}
+
+.hero {
+    padding: 2rem 0 4rem 0;
+    -webkit-animation: fadeInUp 0.8s ease-out;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+    -webkit-animation: glow 1.5s ease-in-out infinite alternate;
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    color: #ccc;
+    letter-spacing: 2px;
+}
+
+.animate-on-load {
+    opacity: 0; /* Start hidden */
+    -webkit-animation: fadeInUp 1s ease-out forwards;
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+/* Stagger animations */
+.members-section.animate-on-load {
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+.description-section {
+    background: rgba(10, 15, 30, 0.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 170, 255, 0.2);
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 900px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    position: relative;
+    overflow: hidden;
+}
+
+.description-content {
+    text-align: left;
+    line-height: 1.8;
+}
+
+.description-content p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: #e0e0e0;
+}
+
+.rules-content {
+    background: rgba(10, 15, 30, 0.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 170, 255, 0.2);
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 900px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    position: relative;
+    text-align: left;
+}
+
+.about-content {
+    background: rgba(10, 15, 30, 0.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 170, 255, 0.2);
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 900px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    position: relative;
+    text-align: center;
+}
+
+.about-content h2 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.title-emoji {
+    width: 40px;
+    height: 40px;
+}
+
+.about-divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    margin: 2rem 0;
+    border-radius: 2px;
+}
+
+.about-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(20, 30, 60, 0.5);
+    border: 1px solid rgba(0, 170, 255, 0.2);
+    border-radius: 8px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.about-section:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(0, 170, 255, 0.3);
+}
+
+.about-section h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.requirement-list, .perk-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.requirement-item, .perk-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.notes-section {
+    text-align: center;
+}
+
+.notes-section p {
+    margin: 0.8rem 0;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.rules-content h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.rule-item {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: rgba(20, 30, 60, 0.5);
+    border: 1px solid rgba(0, 170, 255, 0.2);
+    border-radius: 8px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.rule-item:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(0, 170, 255, 0.3);
+}
+
+.rule-item h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.rule-item ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.rule-item li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.rule-footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 170, 255, 0.3);
+}
+
+.rule-footer em {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.clan-info, .members-section {
+    background: rgba(10, 15, 30, 0.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    border: 1px solid rgba(0, 170, 255, 0.2);
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 900px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    position: relative;
+    overflow: hidden; /* Hide cards that extend beyond container */
+}
+
+/* Futuristic Corner Brackets */
+.clan-info::before, .clan-info::after,
+.members-section::before, .members-section::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-color: var(--corner-glow);
+    border-style: solid;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.clan-info::before, .members-section::before {
+    top: 10px;
+    left: 10px;
+    border-width: 2px 0 0 2px;
+}
+
+.clan-info::after, .members-section::after {
+    bottom: 10px;
+    right: 10px;
+    border-width: 0 2px 2px 0;
+}
+
+h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.emoji {
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+}
+
+.level-display p {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px var(--glow-color);
+}
+
+.slider-container {
+    position: relative;
+    padding: 20px 50px; /* Add vertical padding for hover glow effect */
+    margin: -20px 0; /* Negative margin to compensate for padding */
+}
+
+.slider {
+    display: flex;
+    gap: 20px;
+    -webkit-transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out;
+}
+
+.member-card {
+    background: rgba(20, 30, 60, 0.7);
+    border: 1px solid rgba(0, 170, 255, 0.3);
+    border-radius: 8px;
+    padding: 1.5rem;
+    min-width: 200px;
+    text-align: center;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.member-card:hover {
+    -webkit-transform: translateY(-10px) scale(1.03);
+    transform: translateY(-10px) scale(1.03);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 20px var(--glow-color);
+}
+
+.member-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.member-card h3 {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.member-card p {
+    margin: 0;
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    -webkit-transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-btn img {
+    width: 24px;
+    height: 24px;
+}
+
+.slider-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}
+
+footer {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    font-size: 0.9rem;
+    color: #888;
+    background: rgba(10, 15, 30, 0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    nav {
+        gap: 10px;
+    }
+
+    .blade-button {
+        padding: 8px 18px;
+        -webkit-transform: skew(-15deg);
+        transform: skew(-15deg);
+    }
+
+    .blade-button span {
+        -webkit-transform: skew(15deg);
+        transform: skew(15deg);
+    }
+
+    .blade-button:hover {
+        -webkit-transform: skew(-15deg) scale(1.05);
+        transform: skew(-15deg) scale(1.05);
+    }
+    
+    .blade-button:active {
+        -webkit-transform: skew(-15deg) scale(0.98);
+        transform: skew(-15deg) scale(0.98);
+    }
+
+    .clan-info, .members-section {
+        padding: 1.5rem;
+        margin: 1.5rem auto;
+    }
+
+    .slider-container {
+        padding: 0 45px; /* Adjust padding for smaller buttons */
+    }
+
+    .slider-btn {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        -webkit-animation: none; /* Disable background animation on small devices for performance */
+        animation: none; /* Disable background animation on small devices for performance */
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .clan-info, .members-section {
+        padding: 1rem;
+        border-width: 0; /* Remove border on very small screens */
+    }
+
+    .clan-info::before, .clan-info::after,
+    .members-section::before, .members-section::after {
+        display: none; /* Hide corner brackets on small screens */
+    }
+
+    .slider-container {
+        padding: 0 5px;
+    }
+
+    .slider-btn {
+        display: none; /* Hide buttons, user can swipe on touch devices */
+    }
+
+    .slider {
+        overflow-x: auto; /* Enable horizontal scrolling for members */
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    }
+
+    .member-card {
+        scroll-snap-align: center;
+    }
+}
+
